@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Flickering overlay -->
+    <div class="flicker-overlay"></div>
+
+    <!-- Scan lines -->
+    <div class="scan-lines">
+        <div class="scan-line" style="top: 15%"></div>
+        <div class="scan-line" style="top: 30%"></div>
+        <div class="scan-line" style="top: 50%"></div>
+        <div class="scan-line" style="top: 70%"></div>
+        <div class="scan-line" style="top: 85%"></div>
+    </div>
+
+    <!-- Central circle interface -->
+    <div class="central-container">
+        <div class="circle-outer">
+            <div class="circle-middle">
+                <div class="circle-inner">
+                    <div class="circle-core"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rotating rings -->
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+
+        <!-- Center text -->
+        <div class="center-text">
+            <h1 class="title">JARVIS</h1>
+            <p class="subtitle">Just A Rather Very Intelligent System</p>
+        </div>
+    </div>
+
+    <!-- Grid background -->
+    <div class="grid-background"></div>
+
+    <!-- ElevenLabs ConvAI Widget -->
+    <elevenlabs-convai agent-id="agent_1601k8qgvzt8e1kbq24726pcmbpy"></elevenlabs-convai>
+
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
