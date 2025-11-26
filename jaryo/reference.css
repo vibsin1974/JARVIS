@@ -1,0 +1,216 @@
+/* Reference Room Specific Styles */
+body.reference-body {
+    background-color: #f9f9f9;
+    font-family: 'Malgun Gothic', 'Dotum', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    padding: 20px;
+}
+
+/* Header */
+.header-links {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.header-links a {
+    text-decoration: none;
+    color: #00b0f0;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    border-top: 2px solid #333;
+    border-bottom: 1px solid #ccc;
+    background: #f8f8f8;
+}
+
+.tab-item {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 13px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    border-right: 1px solid #e1e1e1;
+}
+
+.tab-item:last-child {
+    border-right: none;
+}
+
+.tab-item.active {
+    background: #fff;
+    color: #000;
+    border-bottom: 2px solid #fff;
+    margin-bottom: -1px;
+}
+
+/* Table */
+.file-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.file-list th {
+    display: none;
+    /* Header hidden in screenshot design */
+}
+
+.file-list tr {
+    border-bottom: 1px solid #eee;
+}
+
+.file-list td {
+    padding: 15px 10px;
+    vertical-align: middle;
+}
+
+.col-rank {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.col-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.file-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.file-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.file-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.file-version {
+    font-size: 12px;
+    color: #999;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.col-downloads {
+    width: 150px;
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+}
+
+.popularity-bar {
+    display: inline-block;
+    width: 60px;
+    height: 8px;
+    background: #eee;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.popularity-fill {
+    height: 100%;
+    background: #00b0f0;
+}
+
+.col-rating {
+    width: 120px;
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+}
+
+.stars {
+    color: #00b0f0;
+    font-size: 14px;
+}
+
+.col-license {
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+}
+
+/* Admin Styles */
+.admin-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #00b0f0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0090c0;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th,
+.admin-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #f2f2f2;
+}

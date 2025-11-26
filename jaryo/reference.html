@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자료실</title>
+    <link rel="stylesheet" href="reference.css">
+</head>
+
+<body class="reference-body">
+
+    <div class="container">
+        <div class="header-links">
+            기준보기 [?] &nbsp;&nbsp; 개발사 다운로드 랭킹 보기 [>] &nbsp;&nbsp; <a href="admin.html">관리자 페이지 ></a>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs" id="categoryTabs">
+            <!-- Tabs will be injected here -->
+        </div>
+
+        <!-- File List Table -->
+        <table class="file-list">
+            <tbody id="fileTableBody">
+                <!-- Rows will be injected here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+        const categoryTabs = document.getElementById('categoryTabs');
+        const fileTableBody = document.getElementById('fileTableBody');
+        let currentCategory = 'all';
+
+        function renderTabs() {
+            const categories = DataManager.getCategories();
+            categoryTabs.innerHTML = categories.map(cat => `
+                <div class="tab-item ${cat.id === currentCategory ? 'active' : ''}" 
+                     onclick="switchCategory('${cat.id}')">
+                    ${cat.name}
+                </div>
+            `).join('');
+        }
+
+        function renderFiles() {
+            const allFiles = DataManager.getFiles();
+            let filteredFiles = currentCategory === 'all'
+                ? allFiles
+                : allFiles.filter(f => f.category === currentCategory);
+
+            // Sort by downloads desc
+            filteredFiles.sort((a, b) => b.downloads - a.downloads);
+
+            // Calculate max downloads for bar width
+            const maxDownloads = Math.max(...allFiles.map(f => f.downloads), 10000);
+
+            fileTableBody.innerHTML = filteredFiles.map((file, index) => {
+                const barWidth = (file.downloads / maxDownloads) * 100;
+                const stars = '★'.repeat(Math.floor(file.rating)) + '☆'.repeat(5 - Math.floor(file.rating));
+
+                return `
+                    <tr>
+                        <td class="col-rank">${index + 1}</td>
+                        <td class="col-info">
+                            <img src="${file.icon}" alt="icon" class="file-icon">
+                            <div class="file-details">
+                                <span class="file-name">${file.name}</span>
+                                <span class="file-version">${file.version}</span>
+                            </div>
+                        </td>
+                        <td class="col-downloads">
+                            ⓙ ${file.downloads.toLocaleString()}
+                            <div class="popularity-bar">
+                                <div class="popularity-fill" style="width: ${barWidth}%"></div>
+                            </div>
+                            ${file.isHot ? '<span style="color:#00b0f0; font-size:10px; margin-left:5px;">인기</span>' : ''}
+                        </td>
+                        <td class="col-rating">
+                            <span class="stars">${stars}</span> ${file.rating}
+                        </td>
+                        <td class="col-license">${file.license}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function switchCategory(catId) {
+            currentCategory = catId;
+            renderTabs();
+            renderFiles();
+        }
+
+        // Init
+        renderTabs();
+        renderFiles();
+    </script>
+</body>
+
+</html>
