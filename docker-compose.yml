@@ -1,0 +1,9 @@
+version: '3'
+services:
+  jarvis:
+    build: .
+    image: jarvis:latest
+    container_name: jarvis
+    ports:
+      - "8080:80"
+    restart: unless-stopped
